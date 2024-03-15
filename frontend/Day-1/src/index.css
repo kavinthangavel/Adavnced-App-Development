@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(rgb(206, 229, 253), rgb(255, 255, 255));
+    margin: 0; 
+    padding: 0; 
+}

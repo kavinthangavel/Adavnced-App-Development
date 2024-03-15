@@ -1,15 +1,17 @@
-import { useEffect,useState } from 'react'; //use lazy later
+// import { useEffect,useState } from 'react'; //use lazy later
 import {Routes,Route, BrowserRouter} from "react-router-dom";
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import Home from './pages/users/Home';
-import Profile from './pages/users/Profile';
+// import Profile from './pages/users/Profile';
 import Contact from './pages/Contact';
 import Navbar from './pages/NavBar';
 
 import "./App.css";
 import Courses from './pages/users/Courses';
 import AdmissionForm from './pages/users/AdmissionForm';
+import Footer from './pages/Footer';
+import Error404 from './pages/Error404';
 
 // function userRoutes(){
 //   return(
@@ -43,7 +45,10 @@ function App() {
     <Route path='/register' element={<Register/>}/>
     <Route path='/courses' element={<Courses/>}/>
     <Route path='/form' element={<AdmissionForm/>}/>
+    <Route path='/footer' element={<Footer/>}/>
+    <Route path='/error' element={<Error404/>}/>
     </Routes>
+    <Footer/>
     </div>
     </BrowserRouter>
   )

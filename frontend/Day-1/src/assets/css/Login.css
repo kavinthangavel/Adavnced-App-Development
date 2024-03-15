@@ -1,9 +1,9 @@
 
 .login-container {
-  width: 300px;
+  width: 400px;
   margin: 0%; 
   padding: 100px;
-  border: 2px solid #ccc;
+
   border-radius: 10px;
   text-align: center;
   position:fixed;

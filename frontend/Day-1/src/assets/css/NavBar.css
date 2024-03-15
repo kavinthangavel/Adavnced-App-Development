@@ -1,9 +1,10 @@
+/* NavBar.css */
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 0px;
-  /* background-color: #000000; */
   color: #fff;
   position: fixed;
   top: 6%; 
@@ -22,7 +23,6 @@
   box-shadow: rgba(85, 166, 246, 0.1) 0px 0px 1px, rgba(85, 166, 246, 0.15) 1px 1.5px 2px -1px, rgba(85, 166, 246, 0.15) 4px 4px 12px -2.5px;
 }
 
-
 .navbar-left {
   display: flex;
   align-items: center;
@@ -40,6 +40,7 @@
   margin-right: 50px;
   display: flex;
   align-items: center;
+  transition: all 0.3s ease; 
 }
 
 .navbar-right ul li:last-child {
@@ -54,4 +55,32 @@
 .logo {
   height: 40px;
   width: auto;
+}
+
+.navbar-right ul li.active {
+  position: relative; 
+}
+
+.navbar-right ul li.active::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%; 
+  height: 100%;
+  border-radius: 100px; 
+  background-color: rgba(0, 123, 255, 0.3); /* Adjust transparency */
+  z-index: -1; 
+  transition: all 0.3s ease; 
+}
+
+.navbar-right ul li.active a {
+  position: relative; 
+  z-index: 1; 
+  color: #fff; 
+}
+
+.navbar-right ul li:hover {
+  transform: scale(1.1); /* Example hover animation */
 }

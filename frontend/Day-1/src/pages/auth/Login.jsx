@@ -58,6 +58,7 @@ const Login = () => {
             placeholder="Enter your email"
             onChange={(e) => setEmail(e.target.value)}
             className="input-field"
+            required
           />
           <label className="error">{emailError}</label>
         </div>

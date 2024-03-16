@@ -1,5 +1,3 @@
-/* NavBar.css */
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -69,7 +67,7 @@
   width: 120%; 
   height: 100%;
   border-radius: 100px; 
-  background-color: rgba(0, 123, 255, 0.3); /* Adjust transparency */
+  background-color: rgba(0, 123, 255, 0.79); /* Adjust transparency */
   z-index: -1; 
   transition: all 0.3s ease; 
 }
@@ -82,4 +80,21 @@
 
 .navbar-right ul li:hover {
   transform: scale(1.1); /* Example hover animation */
+  border-radius: 100px; /* Add border-radius for curved background effect */
+  position: relative;
 }
+
+.navbar-right ul li:hover::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%; 
+  height: 100%;
+  border-radius: 100px; 
+  background-color: rgba(0, 123, 255, 0.404); /* Adjust transparency */
+  z-index: -1; 
+  transition: all 1s ease; 
+}
+

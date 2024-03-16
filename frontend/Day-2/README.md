@@ -1,3 +1,3 @@
-# Day-1 Login,Signup,NavBar
+# Day-2 Sidebar,homepage,courses page
 
-Added Navbar,auth pages and other pages.
+

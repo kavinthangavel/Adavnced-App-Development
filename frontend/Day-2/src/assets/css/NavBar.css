@@ -1,0 +1,100 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+  color: #fff;
+  position: fixed;
+  top: 4%; 
+  left: 0;
+  right: 1px;
+  width: 70%;
+  margin: auto; /* Center the navbar horizontally */
+  z-index: 1000;
+  border-radius: 30px;
+  max-height: 40px;
+  border: 1px solid rgba(191, 204, 217, 0.5);
+  box-shadow: rgba(85, 166, 246, 0.1) 0px 0px 1px, rgba(85, 166, 246, 0.15) 1px 1.5px 2px -1px, rgba(85, 166, 246, 0.15) 4px 4px 12px -2.5px;
+  background: none;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  margin-left: 20px;
+}
+
+.navbar-right ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-right ul li {
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease; 
+}
+
+.navbar-right ul li:last-child {
+  margin-right: 60px;
+}
+
+.navbar-right ul li a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.logo {
+  height: 60px;
+  width: 90%;
+  margin-right: 10px;
+  margin-top: 4px; 
+}
+
+.navbar-right ul li.active {
+  position: relative; 
+}
+
+.navbar-right ul li.active::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%; 
+  height: 100%;
+  border-radius: 100px; 
+  background-color: rgba(0, 123, 255, 0.79); /* Adjust transparency */
+  z-index: -1; 
+  transition: all 0.3s ease; 
+}
+
+.navbar-right ul li.active a {
+  position: relative; 
+  z-index: 1; 
+  color: #ffffff; 
+}
+
+.navbar-right ul li:hover {
+  transform: scale(1.1); /* Example hover animation */
+  border-radius: 100px; /* Add border-radius for curved background effect */
+  position: relative;
+}
+
+.navbar-right ul li:hover::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%; 
+  height: 100%;
+  border-radius: 100px; 
+  background-color: rgba(0, 123, 255, 0.404); /* Adjust transparency */
+  z-index: -1; 
+  transition: all 1s ease; 
+}
+

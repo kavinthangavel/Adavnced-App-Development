@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-left">
-            <p>&copy; 2024 Sitemark</p>
+            <p>&copy; 2024 Kavin</p>
           </div>
           <div className="footer-right">
             <div className="social-icons">

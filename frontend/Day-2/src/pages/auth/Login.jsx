@@ -1,6 +1,5 @@
-/* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import Link component
 import '../../assets/css/Login.css';
 import '../../index.css';
 
@@ -42,14 +41,14 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      //wanna to add logic 
-      navigate('/home'); 
+      // Add your logic for logging in
+      navigate('/home');
     }
   };
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
+      <h1 className="font-bold text-xl mb-4">Login</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input
@@ -84,7 +83,7 @@ const Login = () => {
         </button>
       </form>
       <div className="bottom-text">
-        Don't have an account? <a href="/register">Sign up</a>
+        Don't have an account? <Link to="/register">Sign up</Link> {/* Use Link component */}
       </div>
     </div>
   );

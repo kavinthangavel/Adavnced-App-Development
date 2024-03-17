@@ -1,20 +1,25 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import Link component
 import '../../assets/css/Login.css';
 import '../../index.css';
 
 const Register = () => {
   const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [usernameError, setUsernameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+  const [confirmPasswordError, setConfirmPasswordError] = useState('');
   const navigate = useNavigate();
 
   const validateForm = () => {
     setEmailError('');
+    setUsernameError('');
     setPasswordError('');
+    setConfirmPasswordError('');
 
     if (!email.trim()) {
       setEmailError('Please enter your email');
@@ -23,6 +28,11 @@ const Register = () => {
 
     if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email.trim())) {
       setEmailError('Please enter a valid email');
+      return false;
+    }
+
+    if (!username.trim()) {
+      setUsernameError('Please enter your username');
       return false;
     }
 
@@ -36,21 +46,39 @@ const Register = () => {
       return false;
     }
 
+    if (password !== confirmPassword) {
+      setConfirmPasswordError('Passwords do not match');
+      return false;
+    }
+
     return true;
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default form submission
     if (validateForm()) {
-      //wanna to add logic 
-      navigate('/home'); 
+      // Add your logic for registering the user
+      // For example, you can send a request to your backend API to register the user
+      // After successful registration, navigate to the home page
+      navigate('/home');
     }
   };
 
   return (
     <div className="login-container">
-      <h2>Signup</h2>
+    <h1 className="font-bold text-xl mb-4">SignUp</h1>
       <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <input
+            type="text"
+            value={username}
+            placeholder="Enter your username"
+            onChange={(e) => setUsername(e.target.value)}
+            className="input-field"
+            required
+          />
+          <label className="error">{usernameError}</label>
+        </div>
         <div className="form-group">
           <input
             type="email"
@@ -64,27 +92,32 @@ const Register = () => {
         </div>
         <div className="form-group">
           <input
-            type={showPassword ? 'text' : 'password'}
+            type="password"
             value={password}
             placeholder="Enter your password"
             onChange={(e) => setPassword(e.target.value)}
             className="input-field"
+            required
           />
-          <button
-            type="button"
-            className="toggle-password"
-            onClick={() => setShowPassword(!showPassword)}
-          >
-            {showPassword ? 'Hide' : 'Show'}
-          </button>
           <label className="error">{passwordError}</label>
         </div>
+        <div className="form-group">
+          <input
+            type="text"
+            value={confirmPassword}
+            placeholder="Confirm your password"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            className="input-field"
+            required
+          />
+          <label className="error">{confirmPasswordError}</label>
+        </div>
         <button type="submit" className="login-btn">
-          Log in
+          Signup
         </button>
       </form>
       <div className="bottom-text">
-        Don't have an account? <a href="/register">Sign up</a>
+        Oops! Already had an account ? <Link to="/login">Login</Link> {/* Use Link component */}
       </div>
     </div>
   );

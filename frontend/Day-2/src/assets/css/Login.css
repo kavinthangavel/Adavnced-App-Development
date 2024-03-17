@@ -1,9 +1,7 @@
 
 .login-container {
-  width: 400px;
-  margin: 0%; 
+  width: 30%; 
   padding: 100px;
-
   border-radius: 10px;
   text-align: center;
   position:fixed;
@@ -16,7 +14,7 @@
   margin-bottom: 15px;
 }
 .input-field {
-  width: calc(100% - 40px); 
+  width: calc(100% - 10px); 
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 95px;
@@ -26,7 +24,7 @@
 .toggle-password {
   position: absolute;
   top: 50%;
-  right: 10px;
+  right: 20px;
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
@@ -63,4 +61,10 @@
 
 .bottom-text a:hover {
   text-decoration: underline;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
 }

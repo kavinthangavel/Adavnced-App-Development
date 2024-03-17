@@ -12,6 +12,7 @@ import Courses from './pages/users/Courses';
 import AdmissionForm from './pages/users/AdmissionForm';
 import Footer from './pages/Footer';
 import Error404 from './pages/Error404';
+import Payment from "./pages/users/Payment";
 
 // function userRoutes(){
 //   return(
@@ -46,7 +47,9 @@ function App() {
     <Route path='/courses' element={<Courses/>}/>
     <Route path='/form' element={<AdmissionForm/>}/>
     <Route path='/footer' element={<Footer/>}/>
-    <Route path='/error' element={<Error404/>}/>
+    <Route path='/pay' element={<Payment/>}/>
+    <Route path='*' element={<Error404 />} />
+
     </Routes>
     <Footer/>
     </div>

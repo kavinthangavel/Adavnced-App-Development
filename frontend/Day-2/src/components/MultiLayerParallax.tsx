@@ -16,8 +16,7 @@ export default function MultiLayerParallax() {
   const textScale = useTransform(scrollYProgress, [0, 0.5], [1.5, 1]);
 
   // Adjust the vertical position of the text elements
-  const textY = useTransform(scrollYProgress, [0, 0.5, 1], ["-10%", "40%", "150%"]); // Slightly higher placement
-  const textX = useTransform(scrollYProgress, [0, 1], ["-10%", "60%"]); // More leftward and rightward placement
+  const textY = useTransform(scrollY, [0, 1000], ["-20%", "50%"]); // Adjusted vertical placement inversely with scrollY
 
   return (
     <div
@@ -26,11 +25,15 @@ export default function MultiLayerParallax() {
     >
       <motion.h3
         className="font-bold text-white text-7xl md:text-8xl relative z-10"
-        style={{ x: textX, y: textY }}
+        style={{ y: textY }}
       >
-        <span style={{ display: "block", textAlign: "left" }}>Let The</span>
-        <span style={{ display: "block", textAlign: "center" }}>Success</span>
-        <span style={{ display: "block", textAlign: "right" }}>Begin</span>
+        <span style={{ marginLeft: "-90px" }}>LET YOUR</span>
+        <br />
+        <span style={{ textAlign: "center", marginBottom: "20px" }}>
+          <span style={{ color: "red" }}>SUCCESS STORY</span>
+        </span>
+        <br />
+        <span style={{ marginLeft: "130px" }}>START HERE</span> {/* Apply marginRight here */}
       </motion.h3>
 
       <motion.div

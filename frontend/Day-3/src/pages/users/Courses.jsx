@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import '../../assets/css/Courses.css'; // Import the CSS file for Courses page
 
+
 const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState(null);
@@ -43,6 +44,7 @@ const Courses = () => {
 
   return (
     <div className="courses-container">
+ 
       {courses.map(course => (
         <div key={course.id}>
           <div className="course-card" onClick={(event) => handleCardClick(course.id, event)}>
@@ -65,6 +67,7 @@ const Courses = () => {
           )}
         </div>
       ))}
+   
     </div>
   );
 };

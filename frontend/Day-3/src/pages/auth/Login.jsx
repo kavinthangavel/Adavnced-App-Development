@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../assets/css/Login.css';
+import Navbar from '../NavBar';
+import Footer from '../Footer';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -41,13 +43,19 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Add your logic for logging in
-      navigate('/home');
+      
+      if (email === 'admin@connect.com' && password === 'admin1234') {
+        navigate('/admin'); // Redirect to the admin route
+      } else {
+        
+        navigate('/home');
+      }
     }
   };
 
   return (
     <div className="login-container">
+    <Navbar />
       <h1 className="font-bold text-xxl mb-5">Login</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">

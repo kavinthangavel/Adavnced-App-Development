@@ -1,8 +1,9 @@
 // AdmissionForm.jsx
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../assets/css/AdmissionForm.css';
+
 
 const AdmissionForm = () => {
   const [fullName, setFullName] = useState('');
@@ -88,13 +89,15 @@ const AdmissionForm = () => {
         <label htmlFor="mobileNumber">Registered Mobile No *</label>
         <input type="tel" id="mobileNumber" value={mobileNumber} onChange={(e) => setMobileNumber(e.target.value)} required />
 
-        <label htmlFor="programInterested">Program Interested *</label>
+        <label htmlFor="programInterested">Course Interested *</label>
         <input type="text" id="programInterested" value={programInterested} onChange={(e) => setProgramInterested(e.target.value)} required />
 
-        <label htmlFor="alternateEmail">Alternate Email *</label>
+        <label htmlFor="alternateEmail">Institute *</label>
         <input type="email" id="alternateEmail" value={alternateEmail} onChange={(e) => setAlternateEmail(e.target.value)} required />
 
-        <label htmlFor="aadhaarNumber">Aadhaar Number</label>
+        <label htmlFor="aadhaarNumber">10th %</label>
+        <input type="text" id="aadhaarNumber" value={aadhaarNumber} onChange={(e) => setAadhaarNumber(e.target.value)} />
+        <label htmlFor="aadhaarNumber">12th/Diploma %</label>
         <input type="text" id="aadhaarNumber" value={aadhaarNumber} onChange={(e) => setAadhaarNumber(e.target.value)} />
 
         <label htmlFor="nationality">Nationality *</label>

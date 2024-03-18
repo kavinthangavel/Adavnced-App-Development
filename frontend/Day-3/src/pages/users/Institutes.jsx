@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import '../../assets/css/Institutes.css'; // Import the CSS file for Institutes page
 
+
 const Institutes = () => {
   const [institutes, setInstitutes] = useState([]);
   const [selectedInstitute, setSelectedInstitute] = useState(null);
@@ -39,6 +40,7 @@ const Institutes = () => {
 
   return (
     <div className="institutes-container">
+   
       {institutes.map(institute => (
         <div key={institute.id}>
           <div className="institute-card" onClick={(event) => handleCardClick(institute.id, event)}>
@@ -62,6 +64,7 @@ const Institutes = () => {
           )}
         </div>
       ))}
+ 
     </div>
   );
 };

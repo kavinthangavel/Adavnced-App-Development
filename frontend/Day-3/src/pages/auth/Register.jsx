@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../assets/css/Register.css'; // Import the CSS file for the signup page
 import '../../index.css';
+import Navbar from '../NavBar';
+
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -63,6 +65,7 @@ const Register = () => {
 
   return (
     <div className="signup-container"> {/* Updated class name */}
+      <Navbar />
       <h1 className="font-bold text-xxl mb-4">SignUp</h1> {/* Updated class name */}
       <form onSubmit={handleSubmit}>
         <div className="form-group"> {/* Updated class name */}

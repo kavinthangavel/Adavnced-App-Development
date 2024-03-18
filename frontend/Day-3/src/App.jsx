@@ -1,21 +1,33 @@
-import { useState, useEffect } from 'react'; //use lazy later
+import { useState, useEffect, lazy } from 'react';
 import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
-import Login from './pages/auth/Login';
-import Register from './pages/auth/Register';
-import Home from './pages/users/Home';
-import Contact from './pages/Contact';
-import Navbar from './pages/NavBar';
-import Courses from './pages/users/Courses';
-import AdmissionForm from './pages/users/AdmissionForm';
-import Footer from './pages/Footer';
-import Error404 from './pages/Error404';
-import Payment from './pages/users/Payment';
-import Profile from './pages/users/Profile';
-import Institutes from './pages/users/Institutes';
+import Error404 from './components/Error404';
+import Loader from './components/Loader';
+import UserLayout from './pages/users/UserLayout';
+import AdminLayout from './pages/admin/AdminLayout'
+import LazyLayout from './components/LazyLayout';
+
+
+// Lazy-loaded components
+const LazyLogin = lazy(() => import('./pages/auth/Login'));
+const LazyRegister = lazy(() => import('./pages/auth/Register'));
+const LazyHome = lazy(() => import('./pages/users/Home'));
+const LazyContact = lazy(() => import('./pages/Contact'));
+const LazyCourses = lazy(() => import('./pages/users/Courses'));
+const LazyAdmissionForm =lazy(() => import('./pages/users/AdmissionForm'));
+const LazyPayment = lazy(() => import('./pages/users/Payment'));
+const LazyProfile = lazy(() => import('./pages/users/Profile'));
+const LazyInstitutes = lazy(() => import('./pages/users/Institutes'));
+const LazyDashboard = lazy(() => import('./pages/admin/Dashboard'));
+const LazyUsers = lazy(() => import('./pages/admin/Users'));
+const LazyACourses = lazy(() => import('./pages/admin/ACourses'));
+const LazyAInstitutes = lazy(() => import('./pages/admin/AInstitutes'));
+const LazyCourseDetails = lazy(() => import('./pages/admin/CourseDetails'));
+const LazyInstituteDetails = lazy(() => import('./pages/admin/InstituteDetails'));
+const LazyUserDetails =lazy(() => import('./pages/admin/UserDetails'));
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(true);
 
   useEffect(() => {
     const token = sessionStorage.getItem('authToken');
@@ -23,8 +35,6 @@ function App() {
       const tokenExpiration = sessionStorage.getItem('tokenExpiration');
       if (Date.now() < tokenExpiration) {
         setIsLoggedIn(true);
-        // Check if the user is an admin based on your authentication logic
-        // For example, if the user role is stored in the token or fetched from the server
         const userRole = sessionStorage.getItem('userRole');
         if (userRole === 'admin') {
           setIsAdmin(true);
@@ -33,53 +43,50 @@ function App() {
     }
   }, []);
 
-
   const userRoutes = () => (
-    <Routes>
-      <Route path="/profile" element={<Profile />} />
-    </Routes>
+    <UserLayout>
+      <Routes>
+        <Route path="/" element={<LazyLayout component={LazyHome} />} />
+        <Route path="/home" element={<LazyLayout component={LazyHome} />} />
+        <Route path="/contact" element={<LazyLayout component={LazyContact} />} />
+        <Route path="/courses" element={<LazyLayout component={LazyCourses} />} />
+        <Route path="/form" element={<LazyLayout component={LazyAdmissionForm} />} />
+        <Route path="/payment" element={<LazyLayout component={LazyPayment} />} />
+        <Route path="/profile" element={<LazyLayout component={LazyProfile} />} />
+        <Route path="/institutes" element={<LazyLayout component={LazyInstitutes} />} />
+        <Route path="*" element={<Error404 />} />
+      </Routes>
+    </UserLayout>
   );
 
   const adminRoutes = () => (
-    <Routes>
-      <Route path="/" element={<Profile />} />
-    </Routes>
+    <AdminLayout>
+      <Routes>
+        <Route path="/" element={<Navigate to="/admin/dashboard" />} />
+        <Route path="/dashboard" element={<LazyLayout component={LazyDashboard} />} />
+        <Route path="/users" element={<LazyLayout component={LazyUsers} />} />
+        <Route path="/courses" element={<LazyLayout component={LazyACourses} />} />
+        <Route path="/institutes" element={<LazyLayout component={LazyAInstitutes} />} />
+        <Route path="/course/:id" element={<LazyLayout component={LazyCourseDetails} />} />
+        <Route path="/institute/:id" element={<LazyLayout component={LazyInstituteDetails} />} />
+        <Route path="/user/:id" element={<LazyLayout component={LazyUserDetails} />} />
+        <Route path="*" element={<Error404 />} />
+      </Routes>
+    </AdminLayout>
   );
 
   return (
     <BrowserRouter>
       <div>
-        <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/institutes" element={<Institutes />} />
-          <Route path="/form" element={<AdmissionForm />} />
-          <Route path="/footer" element={<Footer />} />
-          <Route path="/pay" element={<Payment />} />
-
-          <Route
-            path="/user/*"
-            element={isLoggedIn ? userRoutes() : <Navigate to="/login" />}
-          />
-
-          <Route
-            path="/admin/*"
-            element={
-              isLoggedIn && isAdmin ? (
-                adminRoutes()
-              ) : (
-                <Navigate to="/login" />
-              )
-            }
-          />
+          <Route path="/" element={<LazyLayout component={LazyHome} />} />
+          <Route path="/login" element={<LazyLayout component={LazyLogin} />} />
+          <Route path="/register" element={<LazyLayout component={LazyRegister} />} />
+          <Route path="/load" element={<Loader />} />
+          <Route path="/*" element={isLoggedIn ? userRoutes() : <Navigate to="/login" />} />
+          <Route path="/admin/*" element={isLoggedIn && isAdmin ? adminRoutes() : <Navigate to="/login" />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
-        <Footer />
       </div>
     </BrowserRouter>
   );

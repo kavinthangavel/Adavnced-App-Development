@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../assets/css/Payment.css';
 
+
 const Payment = () => {
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
@@ -24,6 +25,7 @@ const Payment = () => {
 
   return (
     <div className="payment-container">
+   
       <h2>Payment Details</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="cardNumber">Card Number</label>
@@ -40,6 +42,7 @@ const Payment = () => {
           <Link to="/form" className="border border-blue-500 hover:bg-blue-500 hover:text-white px-8 py-4 rounded-lg text-lg font-semibold">Edit Info</Link>
         </div>
       </form>
+   
     </div>
   );
 };

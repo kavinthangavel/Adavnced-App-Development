@@ -2,10 +2,13 @@ import "../../assets/css/Home.css";
 import { Link } from "react-router-dom"; // Importing Link from react-router-dom
 import MultiLayerParallax from "../../components/MultiLayerParallax";
 import Navbar from "../NavBar";
+import Footer from "../Footer";
+
 
 function Home() {
   return (
     <div className="App">
+    <Navbar/>
       <MultiLayerParallax />
       <div className="w-full bg-[#06141D] flex justify-center items-center min-h-screen">
         <div className="max-w-4xl px-8 py-16 space-y-10 text-white text-center">
@@ -17,6 +20,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

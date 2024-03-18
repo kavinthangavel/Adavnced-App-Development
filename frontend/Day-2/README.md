@@ -1,3 +1,3 @@
-# Day-2 Sidebar,homepage,courses page
-
-
+# Day-2 
+Sidebar,homepage,courses page
+payment,admission form

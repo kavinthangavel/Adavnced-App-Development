@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import '../../assets/css/Register.css'; // Import the CSS file for the signup page
+import '../../assets/css/Register.css'; 
 import '../../index.css';
 import Navbar from '../NavBar';
 
@@ -59,7 +59,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      navigate('/home');
+      navigate('/register');
     }
   };
 

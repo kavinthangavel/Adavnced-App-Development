@@ -7,8 +7,8 @@ function CourseDetail() {
                     <div>
 
                         <div>
-                            <h1 className="text-3xl font-bold tracking-tighter mb-1">Bachelor of Engineering (B.E.) in Computer Science and Engineering</h1>
-                            <p className="font-normal tracking-tighter mb-10">Sri Krishna College of Engineering and Technology</p>
+                            <h1 className="text-3xl font-bold tracking-tighter mb-1">Bachelor of Technology (B.Tech.) in Information Technology</h1>
+                            <p className="font-normal tracking-tighter mb-10">Sri Krishna College of Technology</p>
                         </div>
 
                         <div>
@@ -57,6 +57,6 @@ function CourseDetail() {
     )
 }
 
-const description = "The B.E. in Computer Science and Engineering program provides a comprehensive understanding of computer science principles and engineering concepts. Students will gain hands-on experience in designing and developing software and hardware systems."
+const description = "The B.Tech. in IT program provides a comprehensive understanding of IT principles and engineering concepts. Students will gain hands-on experience in designing and developing software and hardware systems."
 
 export default CourseDetail;

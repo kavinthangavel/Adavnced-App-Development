@@ -51,7 +51,7 @@ function App() {
         <Route path="/contact" element={<LazyLayout component={LazyContact} />} />
         <Route path="/courses" element={<LazyLayout component={LazyCourses} />} />
         <Route path="/form" element={<LazyLayout component={LazyAdmissionForm} />} />
-        <Route path="/payment" element={<LazyLayout component={LazyPayment} />} />
+        <Route path="/pay" element={<LazyLayout component={LazyPayment} />} />
         <Route path="/profile" element={<LazyLayout component={LazyProfile} />} />
         <Route path="/institutes" element={<LazyLayout component={LazyInstitutes} />} />
         <Route path="*" element={<Error404 />} />

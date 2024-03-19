@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../assets/css/Login.css';
 import Navbar from '../NavBar';
-import Footer from '../Footer';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');

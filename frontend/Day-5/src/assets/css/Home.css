@@ -1,0 +1,24 @@
+.content{
+    height: 100vh;
+}
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 5px 15px;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: 700;
+    color: #edebeb;
+}
+body {
+    margin: 0;
+    padding: 0;
+    /* background: linear-gradient(45deg, #000000, #340707c8);  Adjust gradient colors as needed */
+  }
+  
+  .gradient-background, .two {
+    height: 100vh;
+  }
+
+  

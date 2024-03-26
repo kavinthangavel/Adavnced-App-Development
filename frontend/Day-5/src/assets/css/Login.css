@@ -1,0 +1,70 @@
+/* index.css */
+/* In your CSS or Sass file */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+.login-container {
+  max-width: 400px;
+  margin: 15% auto;
+  margin-bottom: 12.3%;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.form-group {
+  position: relative; 
+  margin-bottom: 15px;
+}
+.input-field {
+  width: calc(100% - 10px); 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 95px;
+  font-size: 16px;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 15px; 
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333; 
+}
+
+.login-btn {
+  width: 50%;
+  padding: 10px;
+  border: none;
+  border-radius: 50px;
+  background-color: #007bff !important;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+.bottom-text {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.bottom-text a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.bottom-text a:hover {
+  text-decoration: underline;
+}
+
+
+
